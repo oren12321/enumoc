@@ -42,6 +42,5 @@ WORKDIR /tmp/
 COPY . /tmp/
 RUN cmake . -DCMAKE_BUILD_TYPE=Release \
  && cmake --build . --parallel $(nproc) --config Release --target library_tests \
- && cmake --build . --parallel $(nproc) --config Release --target library_benchmark \
  && rm -rf /tmp/*
 

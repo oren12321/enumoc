@@ -1,12 +1,12 @@
 #include <gtest/gtest.h>
 
-#include <enumoc/enumoc.h>
+#include <genum/genum.h>
 
-ENUMOC_GENERATE(ns1::ns2, An_enum,
+GENUM_GENERATE(ns1::ns2, An_enum,
     first_field,
     another_field);
 
-TEST(Enumoc_generate, generates_enum_and_to_string_method_for_it)
+TEST(Genum_generate, generates_enum_and_to_string_method_for_it)
 {
     EXPECT_EQ(2, static_cast<int>(ns1::ns2::An_enum::size));
 
