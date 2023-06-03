@@ -29,16 +29,6 @@ RUN git clone -b release-1.11.0 https://github.com/google/googletest.git \
  && rm -rf /tmp/*
 
 WORKDIR /tmp/
-RUN git clone -b v1.6.1 https://github.com/google/benchmark.git \
- && cd benchmark \
- && cmake -E make_directory "build" \
- && cmake -DCMAKE_BUILD_TYPE=Release -DBENCHMARK_DOWNLOAD_DEPENDENCIES=on -S . -B "build" \
- && cmake --build "build" --config Release \
- && cmake -E chdir "build" ctest --build-config Release \
- && cmake --build "build" --config Release --target install \
- && rm -rf /tmp/*
-
-WORKDIR /tmp/
 COPY . /tmp/
 RUN cmake . -DCMAKE_BUILD_TYPE=Release \
  && cmake --build . --parallel $(nproc) --config Release --target library_tests \
