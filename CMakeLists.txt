@@ -5,8 +5,10 @@ project(genum
     DESCRIPTION "An automatic enum generator"
     HOMEPAGE_URL "https://github.com/oren12321/genum")
 
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -Wall")
+if (NOT WIN32)
+    if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -Wall")
+    endif()
 endif()
 
 include(GNUInstallDirs)
