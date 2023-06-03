@@ -31,6 +31,6 @@ RUN git clone -b release-1.11.0 https://github.com/google/googletest.git \
 WORKDIR /tmp/
 COPY . /tmp/
 RUN cmake . -DCMAKE_BUILD_TYPE=Release \
- && cmake --build . --parallel $(nproc) --config Release --target library_tests \
+ && cmake --build . --parallel $(nproc) --config Release --target run_genum_tests \
  && rm -rf /tmp/*
 

@@ -71,4 +71,4 @@ target_include_directories(${PROJECT_NAME}_tests PUBLIC ${CMAKE_SOURCE_DIR}/incl
 target_link_libraries(${PROJECT_NAME}_tests ${PROJECT_NAME}::${PROJECT_NAME} GTest::gtest GTest::gtest_main)
 set_property(TARGET ${PROJECT_NAME}_tests PROPERTY CXX_STANDARD 20)
 
-add_custom_target(library_tests COMMAND ${PROJECT_NAME}_tests DEPENDS ${PROJECT_NAME}_tests)
+add_custom_target(run_${PROJECT_NAME}_tests COMMAND ${PROJECT_NAME}_tests DEPENDS ${PROJECT_NAME}_tests)
